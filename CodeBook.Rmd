@@ -1,0 +1,84 @@
+ TIDYDATA
+========================================================
+
+# Introduction
+This is a data dictionary (or: code book) for a data set created for the Course 
+Project in Getting and Cleaning Data. Below is the list of variables in this 
+final data set with a description and some summary statistics. More information 
+on how this data set was created (and motivation for variable names) can be found
+in the README.md in this github 
+repository.  
+
+
+``` {r echo=FALSE} 
+#rm(list=ls())
+project_directory <-
+    "~/Documents/Coursera/ 8. Getting and Cleaning Data/5_Course Project/"
+export_directory  <- paste0(project_directory, "export/")
+load(paste0(export_directory, "tidydata.Rdata"))
+
+# activity_label
+for (i in 1) {
+    # print the variable number and name
+    cat(format(i, width=5),
+        format(colnames(df_aggregate[i]), width=70),
+        "\n")
+    # print the variable label 
+    cat(format("", width=5),
+        "Activity performed by participant during the experiment","\n")
+    # print variable information   
+    cat(format("", width=5),
+        "class: ",
+        format(class(df_aggregate[,i]),width=10),"\n",
+        format("", width=5),
+        "values: \n")
+    for (iv in 1:6) {
+        cat(format("", width=10),
+            unique(df_aggregate[,i])[iv],"\n")
+    }
+}
+
+for (i in 2) {
+    # subject id
+    # print the variable number and name
+    cat(format(i, width=5),
+        format(colnames(df_aggregate[i]), width=70),
+        "\n")
+    # print the variable label 
+    cat(format("", width=5),
+        "Unique identifier for participant in experiment","\n")
+    # print variable information   
+    cat(format("", width=5),
+        "class: ",
+        format(class(df_aggregate[,i]),width=10),"\n",
+        format("", width=5),
+        "range from: ",
+        format(round(min(df_aggregate[,i]), digits=8)),
+        " to: ",
+        format(round(max(df_aggregate[,i]), digits=8)),
+        "\n","\n")
+}
+
+for (i in 3:ncol(df_aggregate)) {
+    # print the variable number and name
+    cat(format(i, width=5),
+        format(colnames(df_aggregate[i]), width=70),
+        "\n")
+    # print the variable label 
+    cat(format("", width=5),
+        labels_measurement[i-2],"\n")
+    # print variable information   
+    cat(format("", width=5),
+        "class: ",
+        format(class(df_aggregate[,i]),width=10),
+        "min: ",
+        format(round(min(df_aggregate[,i]), digits=6)),
+        "  max: ",
+        format(round(max(df_aggregate[,i]), digits=6)),
+        "\n","\n")
+}
+
+
+```
+
+
