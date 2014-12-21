@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 README
 ========================================================
 
@@ -95,11 +93,3 @@ together with more descriptive variable labels
 |test_directory      |   | subfolder of data directory that contains test data
 |export_directory    |   | subfolder that contains output data (txt and Rdata)
 
-=======
-GettingData
-===========
->>>>>>> 9b36a9efce3b789341f844510ac1c3c9fb81d5f8
-=======
-GettingData
-===========
->>>>>>> 9b36a9efce3b789341f844510ac1c3c9fb81d5f8
